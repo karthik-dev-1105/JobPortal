@@ -1,11 +1,8 @@
 package com.JobFindingPlatform.entity;
 
-import com.JobFindingPlatform.ENUM.Duration;
+
 import com.JobFindingPlatform.ENUM.PlanName;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -15,13 +12,18 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 public class SubscriptionPlan {
-    @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private Long id;
-    private PlanName planName;
-    private Double price;
-    private String currency;
-    private Duration duration;
-    private String features;
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Enumerated(EnumType.STRING)
+    private PlanName planName;
+
+    private Double price;
+
+    private String currency;
+    private Long durationMinutes;
+
+    private String features;
 }

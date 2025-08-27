@@ -53,7 +53,7 @@ public class PaymentController {
 
 
     @GetMapping("/invoice/{paymentId}")
-    public ResponseEntity<byte[]>downloadInvoice(@PathVariable Long paymentId){
+    public ResponseEntity<byte[]> downloadInvoice(@PathVariable Long paymentId){
 
         Payment pay = paymentRepo.findById(paymentId).orElseThrow(()-> new RuntimeException("Payment not found"));
         byte[] pdfBytes = invoiceService.generateInvoice(pay);

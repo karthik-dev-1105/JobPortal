@@ -15,7 +15,7 @@ import java.util.Date;
 public class JWTUtils {
 
     private final String SECRET = "JobFindingPlatformSecretKey1234567890";
-    private final int EXPIRATION = 1000 * 300;
+    private final int EXPIRATION =  30 * 60 * 1000;
 
     private final Key secretKey = Keys.hmacShaKeyFor(SECRET.getBytes(StandardCharsets.UTF_8));
 

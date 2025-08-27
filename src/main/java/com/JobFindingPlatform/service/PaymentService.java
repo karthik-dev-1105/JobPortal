@@ -1,6 +1,7 @@
 package com.JobFindingPlatform.service;
 
 
+import com.JobFindingPlatform.ENUM.PaymentStatus;
 import com.JobFindingPlatform.dto.PaymentRequestDTO;
 import com.JobFindingPlatform.dto.PaymentResponseDTO;
 import com.JobFindingPlatform.entity.Payment;
@@ -23,7 +24,7 @@ public class PaymentService {
         pay.setUserId(dto.getUserId());
         pay.setPlanId(dto.getPlanId());
         pay.setAmount(dto.getAmount());
-        pay.setAmount(dto.getAmount());
+        pay.setStatus(PaymentStatus.SUCCESS);
         pay.setTransactionId(UUID.randomUUID().toString());
         pay.setLocalDateTime(LocalDateTime.now());
 
@@ -31,7 +32,7 @@ public class PaymentService {
 
         PaymentResponseDTO response = new PaymentResponseDTO();
         response.setTransactionId(pay.getTransactionId());
-        response.setPaymentStatus(pay.getStatus());
+        response.setPaymentStatus(PaymentStatus.SUCCESS);
         response.setAmount(pay.getAmount());
         return response;
     }
